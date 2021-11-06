@@ -1,0 +1,16 @@
+mode: "HTTP"
+http:
+  host: "192.168.1.81"
+  port: 9100
+  authentication:
+    scheme: "NONE"
+    username: "username"
+    password: "password"
+pushGateway:
+  job: "unifiedmetrics"
+  url: "http://pushgateway:9091"
+  authentication:
+    scheme: "NONE"
+    username: "username"
+    password: "password"
+  interval: 10
