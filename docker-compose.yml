@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  prometheus:
+    image: prom/prometheus
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - data-prometheus:/prometheus # Remove this line if remote_write is used
+    ports:
+      - "9090:9090"
+
+networks:
+  prometheus:
+    external: true
+
+volumes: # Remove this section if remote_write is used
+  data-prometheus:
